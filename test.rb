@@ -21,9 +21,16 @@ Benchmark.bmbm do |x|
     connection ||= Capybara::Webkit::Connection.new
   end
 
-  x.report "Visit" do
+  x.report "Driver" do
     browser ||= Capybara::Webkit::Browser.new(connection)
     driver ||= Capybara::Webkit::Driver.new(App, browser: browser)
+  end
+
+  x.report "First Visit" do
+    driver.visit(app_host)
+  end
+
+  x.report "Subsequent Visits" do
     10.times do
       driver.visit(app_host)
     end
