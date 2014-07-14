@@ -22,6 +22,8 @@ module Capybara::Webkit
       else
         @output_target = $stderr
       end
+      start_server
+      connect
     end
 
     def puts(string)
@@ -39,6 +41,8 @@ module Capybara::Webkit
     def read(length)
       @socket.read(length)
     end
+
+    private
 
     def start_server
       open_pipe
