@@ -197,7 +197,6 @@ module Capybara::Webkit
       unless options.has_key? :size_to_content
         options[:size_to_content] = true
       end
-      puts "size to content? #{options[:size_to_content]}"
 
       browser.render path, options[:width], options[:height], options[:size_to_content]
     end
