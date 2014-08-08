@@ -239,14 +239,15 @@ bool WebPage::clickTest(QWebElement element, int absoluteX, int absoluteY) {
   return res.frame() == element.webFrame();
 }
 
-bool WebPage::render(const QString &fileName, const QSize &minimumSize) {
+bool WebPage::render(const QString &fileName, const QSize &minimumSize, const bool sizeToContents) {
   QFileInfo fileInfo(fileName);
   QDir dir;
   dir.mkpath(fileInfo.absolutePath());
 
   QSize viewportSize = this->viewportSize();
   this->setViewportSize(minimumSize);
-  QSize pageSize = this->mainFrame()->contentsSize();
+  // TODO make size from current and minumum
+  QSize pageSize = sizeToContents ? this->mainFrame()->contentsSize() : viewportSize;
   if (pageSize.isEmpty()) {
     return false;
   }

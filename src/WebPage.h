@@ -27,7 +27,7 @@ class WebPage : public QWebPage {
     void setPromptText(QString action);
     int getLastStatus();
     void setCustomNetworkAccessManager();
-    bool render(const QString &fileName, const QSize &minimumSize);
+    bool render(const QString &fileName, const QSize &minimumSize, const bool sizeToContents=true);
     virtual bool extension (Extension extension, const ExtensionOption *option=0, ExtensionReturn *output=0);
     void setSkipImageLoading(bool skip);
     QVariantList consoleMessages();

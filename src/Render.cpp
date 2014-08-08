@@ -10,10 +10,11 @@ void Render::start() {
   QString imagePath = arguments()[0];
   int width = arguments()[1].toInt();
   int height = arguments()[2].toInt();
+  bool sizeToContents = arguments()[3] != "false";
 
   QSize size(width, height);
 
-  bool result = page()->render( imagePath, size );
+  bool result = page()->render( imagePath, size, sizeToContents );
 
   if (result) {
     finish(true);

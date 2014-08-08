@@ -194,8 +194,9 @@ module Capybara::Webkit
     def save_screenshot(path, options={})
       options[:width]  ||= 1000
       options[:height] ||= 10
+      options[:size_to_content] ||= true
 
-      browser.render path, options[:width], options[:height]
+      browser.render path, options[:width], options[:height], options [:size_to_content]
     end
 
     def cookies

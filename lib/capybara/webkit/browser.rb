@@ -182,8 +182,8 @@ module Capybara::Webkit
       command('Execute', script)
     end
 
-    def render(path, width, height)
-      command "Render", path, width, height
+    def render(path, width, height, size_to_contents)
+      command "Render", path, width, height, size_to_contents
     end
 
     def timeout=(timeout_in_seconds)
